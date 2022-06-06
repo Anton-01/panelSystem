@@ -6,6 +6,7 @@ const port = process.env.PORT || 4201;
 const app = express();
 
 const test_routes = require('./routes/test');
+const collaborator_routes = require('./routes/collaborator');
 
 mongoose.connect('mongodb://127.0.0.1:27017/business', { useUnifiedTopology: true, useNewUrlParser: true }, (err, res) =>{
     if (err){
@@ -30,5 +31,6 @@ app.use((req,res,next)=>{
 });
 
 app.use('/api', test_routes)
+app.use('/api', collaborator_routes)
 
 module.exports = app;
