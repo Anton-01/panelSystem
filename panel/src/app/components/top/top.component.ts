@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopComponent implements OnInit {
 
-  constructor() { }
+  public user: any = {};
+  constructor( ) {
+    let _str_user: any = localStorage.getItem('user')
+    this.user = JSON.parse(_str_user)
+  }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    localStorage.clear()
+    window.location.reload()
   }
 
 }
